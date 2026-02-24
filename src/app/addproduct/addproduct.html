@@ -1,18 +1,4 @@
-
 <div class="page">
-
-  <!-- Header -->
-  <header class="topbar">
-    <div class="logo">“Healthy Starts Every Single Day!”</div>
-    <nav>
-      <a>Customers</a>
-      <a>Products</a>
-      <a>Subscriptions</a>
-      <a>Reports</a>
-      <a class="admin">Admin</a>
-      <a class="logout">Log Out</a>
-    </nav>
-  </header>
 
   <!-- Content -->
   <div class="container">
@@ -36,34 +22,28 @@
       </div>
 
       <!-- Images -->
-       <div class="form-group">
-  <label>Images</label>
+      <div class="form-group">
+        <label>Images</label>
 
-  <div class="image-boxes">
-    <div class="image-card" *ngFor="let preview of imagePreviews; let i = index">
+        <div class="image-boxes">
+          <div class="image-card" *ngFor="let preview of imagePreviews; let i = index">
 
-      <!-- Preview -->
-      <img *ngIf="preview" [src]="preview" class="preview" />
+            <!-- Preview -->
+            <img *ngIf="preview" [src]="preview" class="preview" />
 
-      <!-- Placeholder -->
-      <p *ngIf="!preview">Image {{ i + 1 }}</p>
+            <!-- Placeholder -->
+            <p *ngIf="!preview">Image {{ i + 1 }}</p>
 
-      <input
-        type="file"
-        accept="image/*"
-        hidden
-        #fileInput
-        (change)="onFileSelected($event, i)"
-      />
-      <button type="button" (click)="fileInput.click()">
-        Upload
-      </button>
+            <input type="file" accept="image/*" hidden #fileInput (change)="onFileSelected($event, i)" />
+            <button type="button" (click)="fileInput.click()">
+              Upload
+            </button>
 
-    </div>
-  </div>
-</div>
+          </div>
+        </div>
+      </div>
 
-     <div class="form-group">
+      <div class="form-group">
         <label>Daily Price</label>
         <input type="number" formControlName="dailyPrice" placeholder="enter amount" />
         <p>Base price per day. Weekly and monthly prices are derived from this.</p>

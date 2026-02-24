@@ -1,0 +1,38 @@
+<div class="main-header">
+  <div class="header-container">
+    <div class="left-text">“Healthy Starts Every Single Day!”</div>
+
+    <div class="right-menu">
+      <nav class="nav-links">
+        <!-- Admin Links -->
+        <ng-container *ngIf="role === 'admin'">
+          <a routerLink="/admin/customers" class="menu-item">Customers</a>
+          <a routerLink="/adminDashboard" class="menu-item">Products</a>
+          <a routerLink="/admin/subscriptions" class="menu-item">Subscriptions</a>
+          <a routerLink="/admin/reports" class="menu-item">Reports</a>
+        </ng-container>
+
+        <!-- Customer Links -->
+        <ng-container *ngIf="role === 'customer'">
+          <a routerLink="/userorder" class="menu-item">My Orders</a>
+        </ng-container>
+
+        <!-- Delivery Links -->
+        <ng-container *ngIf="role === 'delivery'">
+          <a routerLink="/delivery/deliveries" class="menu-item">Deliveries</a>
+        </ng-container>
+      </nav>
+
+      <div class="auth-box">
+        <span class="menu-item user-profile">
+          <span class="material-icons">person</span>
+          {{ userName }}
+        </span>
+        <span class="menu-item logout-btn" (click)="logout()">
+          <span class="material-icons">power_settings_new</span>
+          Log Out
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
