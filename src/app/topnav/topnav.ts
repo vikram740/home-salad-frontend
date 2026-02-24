@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterLink, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -52,4 +53,16 @@ export class Topnav implements OnInit {
     this.userName = 'Guest';
     this.router.navigate(['/']);
   }
+=======
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-topnav',
+  imports: [],
+  templateUrl: './topnav.html',
+  styleUrl: './topnav.scss',
+})
+export class Topnav {
+
+>>>>>>> 9404f31e2b16b3c41a8f82fd531f744ecbc5e2a2
 }
