@@ -1,0 +1,168 @@
+@use "../../Variable.scss" as *;
+.section0{
+    background-color: white;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  //background-color: white;
+  padding: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: row; // Default → iPad and above
+  border-radius: 15px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  max-width: 830px;
+  width: 100%;
+
+  /* Mobile */
+  @include mobile() {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Tablet */
+  @include tablet() {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ================= LEFT IMAGE SECTION ================= */
+
+.section2 {
+  width: 50%;
+
+  @include mobile() {
+    width: 100%;
+  }
+
+  @include tablet() {
+    width: 100%;
+  }
+}
+
+.images {
+  height: 100%;
+  display: flex;
+ 
+}
+
+.design {
+  width: 415px;
+  height: 450px;
+  object-fit: cover;
+  display: block;
+
+  /* Mobile */
+  @include mobile() {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Tablet */
+  @include tablet() {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* ================= RIGHT CONTENT SECTION ================= */
+
+.right-section {
+  width: 50%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  //justify-content: center;
+
+  @include mobile() {
+    width: 100%;
+    padding: 20px;
+  }
+
+  @include tablet() {
+    width: 100%;
+    padding: 30px;
+  }
+}
+
+.tagline {
+  color: #2f6b2f;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.right-section h2 {
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+/* ================= FORM ================= */
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.otp-input {
+  height: 45px;
+  border-radius: 6px;
+  border: none;
+  background-color: #e0e0e0;
+  padding-left: 12px;
+  font-size: 16px;
+  margin-bottom: 8px;
+  outline: none;
+
+  @include mobile() {
+    width: 100%;
+  }
+
+  @include tablet() {
+    width: 100%;
+  }
+}
+
+small {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.submit-btn {
+  margin-top: 15px;
+  height: 45px;
+  border-radius: 6px;
+  border: none;
+  background-color: #fbc02d;
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #f4b400;
+}
+
+.resend {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.resend span {
+  color: #f4b400;
+  font-weight: 600;
+  cursor: pointer;
+}

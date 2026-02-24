@@ -1,0 +1,71 @@
+<div class="home">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="left">
+      <div class="logo-circle">
+        <span>HomeSalads</span>
+      </div>
+      <p class="tagline">“Healthy Starts Every Single Day!”</p>
+    </div>
+
+    <div class="right">
+     <span>My Orders</span>
+         <span class="menu-item">
+      <span class="material-icons">person</span>
+      user
+    </span>
+    <span class="menu-item">
+      <span class="material-icons">power_settings_new</span>
+      Log Out
+    </span>
+    </div>
+  </header>
+
+  <!-- TOP CARDS -->
+  <div class="top-cards">
+    <div class="top-card" *ngFor="let i of [1,2,3,4]">
+      <img src="/images/salad.jpg" alt="">
+      <div class="overlay">
+        <h3>Freshly Prepared</h3>
+        <p>Cut fresh every day</p>
+        <button>Order Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY ROW -->
+  <div class="category-row">
+    <div class="tabs">
+      <h2 class="active">Fruits Salad</h2>
+      <h2>Vegetables Salad</h2>
+    </div>
+
+    <button class="view-btn">View All Plans</button>
+  </div>
+
+  <!-- FILTER -->
+  <div class="filter">
+    <label>Select Category</label>
+    <select>
+      <option>Select category</option>
+    </select>
+  </div>
+
+  <!-- PRODUCT GRID -->
+  <div class="grid">
+    <div class="card" *ngFor="let i of [1,2,3,4,5,6]">
+      <img src="/images/salad.jpg">
+
+      <div class="card-content">
+        <h4>Apple Detox Fruit Salad</h4>
+
+        <div class="bottom">
+          <span class="price">₹25 / Day</span>
+          <button>Order Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

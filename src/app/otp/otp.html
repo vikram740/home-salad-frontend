@@ -1,0 +1,46 @@
+<div class="section0">
+<div class="container">
+  <div class="card">
+
+      <div class="images">
+        <img class="img-fluid design" src="/images/salad.jpg">
+      </div>
+   
+
+    <div class="right-section">
+      <h4 class="tagline">Fresh salads, delivered daily.</h4>
+      <h2>Verify OTP</h2>
+
+      <!-- ✅ BUTTON MOVED INSIDE FORM -->
+      <form [formGroup]="otpForm" (ngSubmit)="verifyOtp()">
+
+        <label>OTP</label>
+        <input 
+          type="text"
+          maxlength="6"
+          placeholder="Enter 6 digit OTP"
+          class="otp-input"
+          formControlName="otp">
+
+        <!-- Error Message -->
+        <small *ngIf="otpForm.get('otp')?.touched && otpForm.get('otp')?.invalid">
+          Enter valid 6 digit OTP
+        </small>
+
+        <button type="submit" class="submit-btn">
+          Submit OTP    
+        </button>
+
+      </form>
+
+      <p class="resend">
+        Didn't receive OTP?
+        <span>Resend OTP</span>
+      </p>
+
+    </div>
+
+  </div>
+</div>
+</div>
+        

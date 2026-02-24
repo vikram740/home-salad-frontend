@@ -1,0 +1,43 @@
+<div class="section1">
+    <div class="salad">
+        <div class="section2">
+            <div class="images">
+                <img class="img-fluid design" src="/images/salad.jpg">
+            </div>
+        </div>
+        <div class="section3">
+            <form class="login" action="" [formGroup]="loginForm" (ngSubmit)="login()">
+                <h3>Fresh salads,delivered daily</h3>
+                
+                    <h2>Admin Login</h2>
+                    <label for="" class="fieldlabel">Username</label>
+                    <div>
+                        <input type="Username" placeholder="Enter username" formControlName="email">
+                        @if(loginForm.get('email')?.hasError('required') && submitted)
+                        {
+                        <div class="errMsg">username required</div>
+                        }
+                        @if(loginForm.get('email')?.hasError('pattern')&& submitted)
+                        {
+                        <div class="errMsg">username invalid</div>
+                        }
+                    </div>
+                    <label for="" class="fieldlabel">Password</label>
+                    <div>
+                        <input type="text" placeholder="Enter password" formControlName="password">
+                        @if(loginForm.get('password')?.hasError('required') && submitted)
+                        {
+                        <div class="errMsg">password required</div>
+                        }
+                    </div>
+                    <div class="divbutton">
+                        <button type="submit">Login</button>
+                    </div>
+                    <!-- <p class="link"> Don’t have an account?
+                        <a href="../register/" >Create Account</a>
+                    </p> -->
+            </form>
+        </div>
+
+    </div>
+</div>

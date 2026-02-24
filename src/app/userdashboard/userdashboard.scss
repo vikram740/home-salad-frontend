@@ -1,0 +1,251 @@
+@use "../../Variable.scss" as *;
+
+.home {
+  background: #f2f2f2;
+}
+
+/* ================= HEADER ================= */
+
+.header {
+  background: #2e7d32;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    .logo-circle {
+      width: 80px;
+      height: 80px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 600;
+      color: #2e7d32;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .tagline {
+      font-size: 18px;
+      margin: 0;
+    }
+  }
+
+  .right {
+    display: flex;
+    gap: 30px;
+    font-size: 15px;
+
+    a {
+      cursor: pointer;
+    }
+  }
+}
+
+/* ================= TOP CARDS ================= */
+
+.top-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  padding: 30px 50px;
+
+  .top-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: #fff;
+
+      h3 {
+        margin: 0;
+        font-size: 20px;
+      }
+
+      p {
+        margin: 5px 0;
+        font-size: 14px;
+      }
+
+      button {
+        margin-top: 10px;
+        padding: 6px 14px;
+        background: #ffa000;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+/* ================= CATEGORY ================= */
+
+.category-row {
+  padding: 0 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .tabs {
+    display: flex;
+    gap: 30px;
+
+    h2 {
+      cursor: pointer;
+      font-weight: 500;
+      color: #444;
+      margin: 0;
+
+      &.active {
+        color: #2e7d32;
+        border-bottom: 2px solid #2e7d32;
+        padding-bottom: 5px;
+      }
+    }
+  }
+
+  .view-btn {
+    background: #2e7d32;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+}
+
+/* ================= FILTER ================= */
+
+.filter {
+  padding: 20px 50px;
+
+  label {
+    margin-right: 10px;
+  }
+
+  select {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+}
+
+/* ================= GRID ================= */
+
+.grid {
+  padding: 0 50px 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+
+    img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+
+      h4 {
+        margin: 0 0 15px 0;
+        font-weight: 500;
+      }
+
+      .bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .price {
+          font-weight: 600;
+        }
+
+        button {
+          background: #ffa000;
+          border: none;
+          padding: 8px 18px;
+          border-radius: 6px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@include laptop {
+  .top-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include tablet {
+  .top-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@include mobile {
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .top-cards,
+  .grid,
+  .category-row,
+  .filter {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .top-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}

@@ -1,0 +1,124 @@
+
+<div class="page">
+
+  <!-- Header -->
+  <header class="topbar">
+    <div class="logo">“Healthy Starts Every Single Day!”</div>
+    <nav>
+      <a>Customers</a>
+      <a>Products</a>
+      <a>Subscriptions</a>
+      <a>Reports</a>
+      <a class="admin">Admin</a>
+      <a class="logout">Log Out</a>
+    </nav>
+  </header>
+
+  <!-- Content -->
+  <div class="container">
+
+    <div class="breadcrumb">
+      Dashboard > Products > <span>Add New Product</span>
+    </div>
+
+    <form [formGroup]="productForm" (ngSubmit)="addProduct()">
+
+      <!-- Name -->
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" formControlName="name" placeholder="enter product name" />
+      </div>
+
+      <!-- Description -->
+      <div class="form-group">
+        <label>Description</label>
+        <textarea formControlName="description" placeholder="enter product description"></textarea>
+      </div>
+
+      <!-- Images -->
+       <div class="form-group">
+  <label>Images</label>
+
+  <div class="image-boxes">
+    <div class="image-card" *ngFor="let preview of imagePreviews; let i = index">
+
+      <!-- Preview -->
+      <img *ngIf="preview" [src]="preview" class="preview" />
+
+      <!-- Placeholder -->
+      <p *ngIf="!preview">Image {{ i + 1 }}</p>
+
+      <input
+        type="file"
+        accept="image/*"
+        hidden
+        #fileInput
+        (change)="onFileSelected($event, i)"
+      />
+      <button type="button" (click)="fileInput.click()">
+        Upload
+      </button>
+
+    </div>
+  </div>
+</div>
+
+     <div class="form-group">
+        <label>Daily Price</label>
+        <input type="number" formControlName="dailyPrice" placeholder="enter amount" />
+        <p>Base price per day. Weekly and monthly prices are derived from this.</p>
+      </div>
+
+      <!-- Weekly & Monthly -->
+      <div class="price-section">
+
+        <div class="price-box">
+          <label>Weekly Price</label>
+          <input type="number" formControlName="weeklyPrice" placeholder="enter amount" />
+
+          <div class="radio-group">
+            <label>
+              <input type="radio" value="manual" formControlName="weeklyType" />
+              Set Weekly Price Manually
+            </label>
+
+            <label>
+              <input type="radio" value="discount" formControlName="weeklyType" />
+              Apply Weekly Discount (%)
+            </label>
+          </div>
+
+          <small>Enter the price per day for weekly subscriptions.</small>
+        </div>
+
+        <div class="price-box">
+          <label>Monthly Price</label>
+          <input type="number" formControlName="monthlyPrice" placeholder="enter amount" />
+
+          <div class="radio-group">
+            <label>
+              <input type="radio" value="manual" formControlName="monthlyType" />
+              Set Monthly Price Manually
+            </label>
+
+            <label>
+              <input type="radio" value="discount" formControlName="monthlyType" />
+              Apply Weekly Discount (%)
+            </label>
+          </div>
+
+          <small>Enter the price per day for monthly subscriptions.</small>
+        </div>
+
+      </div>
+
+      <!-- Buttons -->
+      <div class="buttons">
+        <button type="button" class="cancel">Cancel</button>
+        <button type="submit" class="add">Add Product</button>
+      </div>
+
+    </form>
+
+  </div>
+</div>

@@ -1,0 +1,93 @@
+<div class="section1">
+  <div class="salad">
+    <div class="section2">
+      <div class="images">
+        <img class="img-fluid design" src="/images/salad.jpg">
+      </div>
+    </div>
+
+    <div class="section3">
+      <form class="login"
+            [formGroup]="registerForm"
+            (ngSubmit)="register()">
+
+        <h3>Fresh salads, delivered daily</h3>
+        <h2>Create Account</h2>
+
+        <!-- Name -->
+        <label class="fieldlabel">Name</label>
+        <div>
+          <input type="text" placeholder="Enter name" formControlName="name">
+          @if(registerForm.get('name')?.hasError('required') && submitted)
+          {
+            <div class="errMsg">*Name is required</div>
+          }
+        </div>
+
+        <!-- Phone -->
+        <label class="divlabel">Phone Number</label>
+        <div>
+          <input type="tel" placeholder="Enter phone number" formControlName="phone">
+
+          @if(registerForm.get('phone')?.hasError('required') && submitted)
+          {
+            <div class="errMsg">*Phone number required</div>
+          }
+
+          @if(registerForm.get('phone')?.hasError('pattern') && submitted)
+          {
+            <div class="errMsg">*Phone number must be 10 digits</div>
+          }
+        </div>
+
+        <!-- Email -->
+        <label class="divlabel">Email</label>
+        <div>
+          <input type="email" placeholder="Enter your email" formControlName="email">
+
+          @if(registerForm.get('email')?.hasError('required') && submitted)
+          {
+            <div class="errMsg">*Email required</div>
+          }
+
+          @if(registerForm.get('email')?.hasError('email') && submitted)
+          {
+            <div class="errMsg">*Invalid email format</div>
+          }
+        </div>
+
+        <!-- Password -->
+        <label class="fieldlabel">Password</label>
+        <div>
+          <input type="password" placeholder="Enter password" formControlName="password">
+
+          @if(registerForm.get('password')?.hasError('required') && submitted)
+          {
+            <div class="errMsg">*Password required</div>
+          }
+
+          @if(registerForm.get('password')?.hasError('minlength') && submitted)
+          {
+            <div class="errMsg">*Minimum 6 characters</div>
+          }
+        </div>
+
+        <!-- Confirm Password -->
+        <label class="fieldlabel">Confirm Password</label>
+        <div>
+          <input type="password" placeholder="Confirm password" formControlName="confirmpassword">
+
+          @if(registerForm.get('confirmpassword')?.hasError('required') && submitted)
+          {
+            <div class="errMsg">*Confirm password required</div>
+          }
+        </div>
+
+        <div class="divbutton">
+          <button type="submit">Register</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

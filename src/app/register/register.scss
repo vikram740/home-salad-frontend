@@ -1,0 +1,284 @@
+@use "../../Variable.scss" as *;
+
+.section1{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 120vh;
+    background-color: white;
+    border-radius: 20px;
+
+    @include mobile(){
+      display: unset !important;
+      height: auto !important;
+      padding: 15px;
+    }
+
+    @include tablet(){
+      display: unset !important;
+      height: auto !important;
+      padding: 20px;
+    }
+
+    @include ipad(){
+      height: auto;
+    }
+
+    @include ipadpro(){
+      height: auto;
+    }
+
+    @include ipadpro1(){
+      height: auto;
+    }
+
+    .salad{
+      display: flex;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);  
+
+      @include mobile(){
+        flex-direction: column;
+        align-items: center;
+      }
+
+      @include tablet(){
+        flex-direction: column;
+        align-items: center;
+      }
+
+      @include ipad(){
+        flex-direction: row;
+      }
+
+      @include ipadpro(){
+        flex-direction: row;
+      }
+
+      @include ipadpro1(){
+        flex-direction: row;
+      }
+    }
+
+    .section2{ 
+        width: 415px;
+        background: white;
+
+        @include mobile(){
+          width: 100% !important;
+        }
+
+        @include tablet(){
+          width: 100% !important;
+        }
+
+        @include ipad(){
+          width: 415px;
+        }
+
+        @include ipadpro(){
+          width: 415px;
+        }
+
+        @include ipadpro1(){
+          width: 415px;
+        }
+        
+        .images{
+          display: flex;
+          justify-content: center;
+
+          .design{
+              width:415px;
+              height:100vh;
+              object-fit: cover;
+              display:block;
+
+              @include mobile(){
+                width:100% !important;
+                height:auto;
+              }
+
+              @include tablet(){
+                width:100% !important;
+                height:auto;
+              }
+
+              @include ipad(){
+                height:100vh;
+              }
+
+              @include ipadpro(){
+                height:100vh;
+              }
+
+              @include ipadpro1(){
+                height:100vh;
+              }
+          }
+        }
+    }
+
+    .section3{
+         display: flex;
+         background: white;
+         padding: 15px;
+         margin: 0;
+
+         @include mobile(){
+           justify-content: center;
+           width:100% !important;
+         }
+
+         @include tablet(){
+           justify-content: center;
+           width:100% !important;
+         }
+
+         @include ipad(){
+           justify-content: center;
+         }
+
+         @include ipadpro(){
+           justify-content: center;
+         }
+
+         @include ipadpro1(){
+           justify-content: center;
+         }
+
+        h3{
+          color:rgba(32, 103, 36, 1);
+        }
+
+        .login{
+
+          .toggle-container {
+            display: inline-flex;
+            background: #eee;
+            padding: 5px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+
+            @include mobile(){
+              width:100%;
+              justify-content: center;
+            }
+          }
+
+          .toggle-container button {
+            padding: 8px 25px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: 0.3s;
+
+            @include mobile(){
+              font-size:14px;
+            }
+          }
+
+          .toggle-container button.active {
+            background-color: #f2b632;
+            color: white;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+          }
+
+          .fieldlabel{
+            font-size:20px;
+            display: flex;
+            margin-top: 20px;
+
+            @include mobile(){
+              font-size:16px;
+            }
+
+            @include tablet(){
+              font-size:18px;
+            }
+          }
+
+          input{
+            width:400px;
+            height:35px;
+            margin: 10px 0 ;
+            background-color: rgb(210, 208, 208);
+            border: none;
+            font-size: 20px;
+            border-radius: 5px;
+            padding-left: 10px;
+
+            @include mobile(){
+              width:100% !important;
+            }
+
+            @include tablet(){
+              width:100% !important;
+            }
+
+            @include ipad(){
+              width:100% !important;
+            }
+
+            @include ipadpro(){
+              width:100% !important;
+            }
+
+            @include ipadpro1(){
+              width:400px;
+            }
+          }
+
+          .errMsg{
+            font-size: 14px;
+            color:red;
+          }
+
+          .divbutton{
+            button{
+              color: white;
+              background-color:#FBC02D;
+              border: none;
+              width:100%;
+              font-size:20px;
+              padding:10px;
+              margin: 30px 0px 10px;
+              border-radius: 5px;
+
+              @include mobile(){
+                font-size:18px;
+              }
+
+              @include tablet(){
+                font-size:19px;
+              }
+            }
+          }
+
+          .check{
+            font-size:15px;
+            margin-top: 20px; 
+
+            input{
+              width:15px;
+            }   
+          }
+
+          .link{
+            margin-top: 30px;
+            font-size: 20px;
+            text-align: center;
+
+            @include mobile(){
+              font-size:16px;
+            }
+
+            @include tablet(){
+              font-size:18px;
+            }
+          }
+        }
+    }
+}
