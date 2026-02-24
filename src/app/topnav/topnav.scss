@@ -1,5 +1,4 @@
 .main-header {
-<<<<<<< HEAD
   background: linear-gradient(90deg, #2ecc71 0%, #27ae60 100%);
   padding: 12px 0;
   color: white;
@@ -11,15 +10,6 @@
 
 .header-container {
   width: 1300px;
-=======
-  background: #2f9e44;
-  padding: 18px 0;
-  color: white;
-}
-
-.header-container {
-  width: 1200px;
->>>>>>> 9404f31e2b16b3c41a8f82fd531f744ecbc5e2a2
   max-width: 95%;
   margin: 0 auto;
   display: flex;
@@ -28,7 +18,6 @@
 }
 
 .left-text {
-<<<<<<< HEAD
   font-weight: 700;
   font-size: 18px;
   letter-spacing: 0.5px;
@@ -95,14 +84,4 @@
   .nav-links {
     display: none; // You might want a mobile menu later
   }
-=======
-  font-weight: 600;
-  font-size: 15px;
-}
-
-.right-menu span {
-  margin-left: 25px;
-  cursor: pointer;
-  font-size: 14px;
->>>>>>> 9404f31e2b16b3c41a8f82fd531f744ecbc5e2a2
 }
