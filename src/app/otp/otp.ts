@@ -50,7 +50,7 @@ export class Otp {
     this.auth.verify(payload).subscribe({
       next: (res: any) => {
         console.log(res);
-        this.router.navigate(['/login']);
+        this.router.navigate(['']);
       },
       error: (err) => {
         console.log(err);

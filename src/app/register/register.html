@@ -17,10 +17,10 @@
         <!-- Name -->
         <label class="fieldlabel">Name</label>
         <div>
-          <input type="text" placeholder="Enter name" formControlName="name">
+          <input type="text" placeholder="Enter name" formControlName="name">   
           @if(registerForm.get('name')?.hasError('required') && submitted)
           {
-            <div class="errMsg">*Name is required</div>
+            <div class="errMsg">*Name is required</div>           
           }
         </div>
 
@@ -28,7 +28,7 @@
         <label class="divlabel">Phone Number</label>
         <div>
           <input type="tel" placeholder="Enter phone number" formControlName="phone">
-
+ 
           @if(registerForm.get('phone')?.hasError('required') && submitted)
           {
             <div class="errMsg">*Phone number required</div>

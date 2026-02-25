@@ -1,0 +1,127 @@
+@use "../../Variable.scss" as *;
+.success-wrapper {
+  min-height: 85vh;
+  background: #f3f4f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+
+  @include mobile {
+    padding: 30px 15px;
+  }
+
+  @include tablet {
+    padding: 40px 20px;
+  }
+}
+
+.success-card {
+  background: #ffffff;
+  width: 450px;
+  max-width: 95%;
+  padding: 45px 35px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+  /* ================= LAPTOP ================= */
+  @include laptop {
+    width: 420px;
+    padding: 40px 30px;
+  }
+
+  /* ================= TABLET ================= */
+  @include tablet {
+    width: 380px;
+    padding: 35px 25px;
+  }
+
+  /* ================= MOBILE ================= */
+  @include mobile {
+    width: 100%;
+    padding: 30px 20px;
+    border-radius: 12px;
+  }
+}
+
+/* ICON */
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: #d1fae5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: #15803d;
+  font-weight: bold;
+
+  @include tablet {
+    width: 70px;
+    height: 70px;
+    font-size: 26px;
+  }
+
+  @include mobile {
+    width: 60px;
+    height: 60px;
+    font-size: 22px;
+  }
+}
+
+/* HEADING */
+.success-card h2 {
+  margin: 10px 0;
+  font-size: 22px;
+  font-weight: 600;
+
+  @include mobile {
+    font-size: 18px;
+  }
+}
+
+/* TEXT */
+.sub-text {
+  color: #6b7280;
+  margin-bottom: 8px;
+  font-size: 14px;
+
+  @include mobile {
+    font-size: 13px;
+  }
+}
+
+.transaction {
+  color: #9ca3af;
+  font-size: 12px;
+  margin-bottom: 25px;
+
+  @include mobile {
+    font-size: 11px;
+  }
+}
+
+/* BUTTON */
+.back-btn {
+  background: #166534;
+  color: #ffffff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  @include mobile {
+    width: 100%;
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  &:hover {
+    background: #14532d;
+  }
+}

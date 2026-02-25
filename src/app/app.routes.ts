@@ -48,5 +48,30 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./userorder/userorder').then((m) => m.Userorder),
   },
+   {
+    path: 'usersuccess',
+    loadComponent: () =>
+      import('./usersuccess/usersuccess').then((m) => m.Usersuccess),
+  },
+  {
+    path: 'userfailure',
+    loadComponent: () =>
+      import('./userfailure/userfailure').then((m) => m.Userfailure),
+  },
+   {
+    path: 'userprofile',
+    loadComponent: () =>
+      import('./userprofile/userprofile').then((m) => m.Userprofile),
+  },
+   {
+    path: 'usereditprofile',
+    loadComponent: () =>
+      import('./usereditprofile/usereditprofile').then((m) => m.Usereditprofile),
+  },
+   {
+    path: 'useraddaddress',
+    loadComponent: () =>
+      import('./useraddaddress/useraddaddress').then((m) => m.Useraddaddress),
+  },
 ];
 

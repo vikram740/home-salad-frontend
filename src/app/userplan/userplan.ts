@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-userplan',
@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './userplan.scss',
 })
 export class Userplan {
+  @Output() close = new EventEmitter<void>();
 
+  onClose() {
+    this.close.emit();
+  }
 }

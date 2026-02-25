@@ -249,3 +249,33 @@
     gap: 15px;
   }
 }
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  padding: 40px;   // space around popup
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: #fff;
+  width: 80%;
+  max-width: 700px;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}

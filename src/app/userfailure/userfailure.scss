@@ -1,0 +1,153 @@
+@use "../../Variable.scss" as *;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #f3f4f6;
+}
+
+/* FULL SCREEN CENTER */
+.error-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* CARD */
+.error-card {
+  background: #ffffff;
+  width: 650px;
+  max-width: 95%;
+  padding: 60px 50px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ICON SECTION */
+.icon-wrapper {
+  margin-bottom: 25px;
+}
+
+.icon-circle {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: #fee2e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: #dc2626;
+  position: relative;
+}
+
+/* HEADING */
+.error-card h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* SUB TEXT */
+.sub-text {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 35px;
+}
+
+/* BUTTON COMMON */
+button {
+  width: 60%;
+  max-width: 320px;
+  padding: 14px;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin: 8px 0;
+}
+
+/* GREEN BUTTON */
+.retry-btn {
+  background: #166534;
+  color: #ffffff;
+  border: none;
+}
+
+.retry-btn:hover {
+  background: #14532d;
+}
+
+/* RED OUTLINE BUTTON */
+.cancel-btn {
+  background: transparent;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+}
+
+.cancel-btn:hover {
+  background: #fee2e2;
+}
+
+/* ========================= */
+/* RESPONSIVE DESIGN */
+/* ========================= */
+
+@media (max-width: 992px) {
+  .error-card {
+    width: 90%;
+    padding: 50px 30px;
+  }
+
+  button {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .error-card {
+    padding: 40px 25px;
+  }
+
+  .icon-circle {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+  }
+
+  .error-card h2 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .error-card {
+    padding: 35px 20px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .icon-circle {
+    width: 70px;
+    height: 70px;
+    font-size: 28px;
+  }
+
+  .error-card h2 {
+    font-size: 18px;
+  }
+
+  .sub-text {
+    font-size: 13px;
+  }
+}

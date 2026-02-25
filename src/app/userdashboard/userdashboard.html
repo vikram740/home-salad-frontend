@@ -19,8 +19,21 @@
       <h2>Vegetables Salad</h2>
     </div>
 
-    <button class="view-btn">View All Plans</button>
-  </div>
+    <!-- <button class="view-btn" >View All Plans</button> -->
+     <button class="view-btn" (click)="openPlans()">View All Plans</button>
+
+<!-- Popup Overlay -->
+<div class="popup-overlay" *ngIf="showPlans">
+  <div class="popup-content">
+    
+    <button class="close-btn" (click)="closePlans()">X</button>
+
+    <!-- Load UserPlan Component -->
+    <app-userplan></app-userplan>
+
+  </div>     
+</div>
+</div>
 
   <!-- FILTER -->
   <div class="filter">
