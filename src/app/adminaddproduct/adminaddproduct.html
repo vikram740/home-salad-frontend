@@ -1,104 +1,220 @@
 <div class="page">
-
-  <!-- Content -->
   <div class="container">
-
     <div class="breadcrumb">
-      Dashboard > Products > <span>Add New Product</span>
+      <a routerLink="/adminDashboard">Dashboard</a>
+      <span class="separator">></span>
+
+      <a routerLink="/adminproducts">Products</a>
+      <span class="separator">></span>
+
+      <span class="active">Add New Product</span>
     </div>
-
     <form [formGroup]="productForm" (ngSubmit)="addProduct()">
-
       <!-- Name -->
       <div class="form-group">
-        <label>Name</label>
-        <input type="text" formControlName="name" placeholder="enter product name" />
+        <label>Name *</label>
+        <input type="text" formControlName="name" />
+      </div>
+
+      <!-- Category -->
+      <div class="form-group">
+        <label>Category *</label>
+        <select formControlName="category" class="form-select">
+          <option value="">Select Category</option>
+          <option value="fruits">Fruits</option>
+          <option value="vegetables">Vegetables</option>
+        </select>
       </div>
 
       <!-- Description -->
       <div class="form-group">
-        <label>Description</label>
-        <textarea formControlName="description" placeholder="enter product description"></textarea>
+        <label>Description *</label>
+        <textarea formControlName="description"></textarea>
+      </div>
+
+      <!-- Weight -->
+      <div class="form-group">
+        <label>Weight *</label>
+        <input
+          type="text"
+          formControlName="weight"
+          placeholder="Ex: 250g / 1kg"
+        />
+      </div>
+
+      <!-- Nutrition -->
+      <div class="form-group">
+        <label>Nutrition *</label>
+        <textarea
+          formControlName="nutrition"
+          placeholder="Calories, Protein, Carbs etc"
+        >
+        </textarea>
       </div>
 
       <!-- Images -->
       <div class="form-group">
-        <label>Images</label>
+        <label>Images *</label>
+        <div class="image-wrapper">
+          <div
+            class="image-card"
+            *ngFor="let file of selectedFiles; let i = index"
+          >
+            <p>Image {{ i + 1 }}</p>
 
-        <div class="image-boxes">
-          <div class="image-card" *ngFor="let preview of imagePreviews; let i = index">
+            <p *ngIf="file">{{ file.name }}</p>
 
-            <!-- Preview -->
-            <img *ngIf="preview" [src]="preview" class="preview" />
+            <input
+              type="file"
+              hidden
+              #fileInput
+              (change)="onFileSelected($event, i)"
+            />
 
-            <!-- Placeholder -->
-            <p *ngIf="!preview">Image {{ i + 1 }}</p>
-
-            <input type="file" accept="image/*" hidden #fileInput (change)="onFileSelected($event, i)" />
-            <button type="button" (click)="fileInput.click()">
+            <button
+              type="button"
+              class="upload-btn"
+              (click)="fileInput.click()"
+            >
               Upload
             </button>
 
+            <span *ngIf="file" class="remove-icon" (click)="removeFile(i)">
+              ✖
+            </span>
+
+            <small *ngIf="i === 0">Primary Image</small>
           </div>
         </div>
       </div>
 
+      <!-- Daily Price -->
       <div class="form-group">
-        <label>Daily Price</label>
-        <input type="number" formControlName="dailyPrice" placeholder="enter amount" />
-        <p>Base price per day. Weekly and monthly prices are derived from this.</p>
+        <label>Daily Price *</label>
+        <input type="number" formControlName="dailyPrice" />
+        <small
+          >Base price per day. Weekly and monthly prices are derived from
+          this.</small
+        >
       </div>
 
-      <!-- Weekly & Monthly -->
+      <!-- Weekly -->
       <div class="price-section">
-
+        <!-- Weekly -->
         <div class="price-box">
-          <label>Weekly Price</label>
-          <input type="number" formControlName="weeklyPrice" placeholder="enter amount" />
+          <h4>Weekly Price</h4>
 
-          <div class="radio-group">
-            <label>
-              <input type="radio" value="manual" formControlName="weeklyType" />
-              Set Weekly Price Manually
-            </label>
+          <div class="price-row">
+            <!-- Input Left -->
+            <div class="input-wrapper">
+              <input
+                *ngIf="productForm.value.weeklyType === 'manual'"
+                type="number"
+                formControlName="weeklyPrice"
+                placeholder="enter amount"
+                class="amount-input"
+              />
 
-            <label>
-              <input type="radio" value="discount" formControlName="weeklyType" />
-              Apply Weekly Discount (%)
-            </label>
+              <input
+                *ngIf="productForm.value.weeklyType === 'discount'"
+                type="number"
+                formControlName="weeklyDiscount"
+                placeholder="10%"
+                class="amount-input"
+              />
+            </div>
+
+            <!-- Radios Right -->
+            <div class="radio-group">
+              <label>
+                <input
+                  type="radio"
+                  value="manual"
+                  formControlName="weeklyType"
+                />
+                Set Weekly Price Manually
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  value="discount"
+                  formControlName="weeklyType"
+                />
+                Apply Weekly Discount (%)
+              </label>
+            </div>
           </div>
 
-          <small>Enter the price per day for weekly subscriptions.</small>
+          <!-- KEEP YOUR LOGIC (UNCHANGED) -->
+          <small *ngIf="productForm.value.weeklyType === 'manual'">
+            Enter the price per day for weekly subscriptions.
+          </small>
+
+          <p *ngIf="productForm.value.weeklyType === 'discount'">
+            Calculated Weekly Price: ₹{{ calculatedWeekly }}
+          </p>
         </div>
 
+        <!-- Monthly -->
         <div class="price-box">
-          <label>Monthly Price</label>
-          <input type="number" formControlName="monthlyPrice" placeholder="enter amount" />
+          <h4>Monthly Price</h4>
 
-          <div class="radio-group">
-            <label>
-              <input type="radio" value="manual" formControlName="monthlyType" />
-              Set Monthly Price Manually
-            </label>
+          <div class="price-row">
+            <div class="input-wrapper">
+              <input
+                *ngIf="productForm.value.monthlyType === 'manual'"
+                type="number"
+                formControlName="monthlyPrice"
+                placeholder="enter amount"
+                class="amount-input"
+              />
 
-            <label>
-              <input type="radio" value="discount" formControlName="monthlyType" />
-              Apply Weekly Discount (%)
-            </label>
+              <input
+                *ngIf="productForm.value.monthlyType === 'discount'"
+                type="number"
+                formControlName="monthlyDiscount"
+                placeholder="20%"
+                class="amount-input"
+              />
+            </div>
+
+            <div class="radio-group">
+              <label>
+                <input
+                  type="radio"
+                  value="manual"
+                  formControlName="monthlyType"
+                />
+                Set Monthly Price Manually
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  value="discount"
+                  formControlName="monthlyType"
+                />
+                Apply Weekly Discount (%)
+              </label>
+            </div>
           </div>
 
-          <small>Enter the price per day for monthly subscriptions.</small>
-        </div>
+          <!-- KEEP YOUR LOGIC -->
+          <small *ngIf="productForm.value.monthlyType === 'manual'">
+            Enter the price per day for monthly subscriptions.
+          </small>
 
+          <p *ngIf="productForm.value.monthlyType === 'discount'">
+            Calculated Monthly Price: ₹{{ calculatedMonthly }}
+          </p>
+        </div>
       </div>
 
-      <!-- Buttons -->
       <div class="buttons">
-        <button type="button" class="cancel">Cancel</button>
-        <button type="submit" class="add">Add Product</button>
+        <button class="cancel-btn">Cancel</button>
+        <button type="submit" class="add-btn">Add Product</button>
       </div>
-
     </form>
-
   </div>
 </div>

@@ -39,17 +39,13 @@ export class Topnav implements OnInit {
       } catch (e) {
         console.error('Error parsing user data', e);
       }
-    } else {
-      this.userName = 'Guest';
-    }
+    } 
   }
 
   logout() {
     if (typeof localStorage !== 'undefined') {
       localStorage.clear();
     }
-    this.role = null;
-    this.userName = 'Guest';
     this.router.navigate(['/']);
   }
 }

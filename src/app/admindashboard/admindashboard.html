@@ -1,4 +1,29 @@
-  <section class="dashboard">
-    <h3>Dashboard</h3>
-    <button class="add-btn" routerLink="/addproduct">Add New Product</button>
-  </section>
+<div class="dashboard-container">
+  <div class="breadcrumb">Dashboard</div>
+
+  <div class="actions">
+    <button class="add-btn" routerLink="/adminAddproduct">Add New Product</button>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-label">Total Customers</div>
+      <div class="stat-value">{{TotalCustomers}}</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-label">Active Subscriptions</div>
+      <div class="stat-value">{{ActiveSubscriptions}} </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-label">Today's Deliveries</div>
+      <div class="stat-value">{{TotalDelivery}}</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-label">Monthly Revenue</div>
+      <div class="stat-value">₹{{MonthlyRevenue}}</div>
+    </div>
+  </div>
+</div>

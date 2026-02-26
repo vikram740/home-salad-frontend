@@ -1,6 +1,9 @@
 <app-topnav
-    *ngIf="currentUrl() !== '/' && currentUrl() !== '' && !currentUrl().includes('login') && !currentUrl().includes('register') && !currentUrl().includes('otp')">
+  *ngIf="currentUrl() !== '/' 
+    && currentUrl() !== '' 
+    && !currentUrl().includes('login') 
+    && !currentUrl().includes('register') 
+    && !currentUrl().includes('otp')">
 </app-topnav>
 
-<!-- Page Content Will Load Here -->
 <router-outlet></router-outlet>

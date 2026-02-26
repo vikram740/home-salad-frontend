@@ -1,24 +1,34 @@
-
 import { HttpInterceptorFn } from '@angular/common/http';
-
+import { inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
-  // Get the token from wherever you store it (e.g., localStorage, a service, etc.)
-  const token = localStorage.getItem('authToken');
-  // Clone the request and add the authorization header if the token exists
+  const platformId = inject(PLATFORM_ID);
+  const isBrowser = isPlatformBrowser(platformId);
+
+  let token: string | null = null;
+  if (isBrowser) {
+    token = localStorage.getItem('token');
+  }
+
+  // console.log('--- Auth Interceptor ---');
+  // console.log('Request URL:', req.url);
+  // console.log('Context:', isBrowser ? 'Browser' : 'Server');
+  // console.log('Auth Token Found:', !!token);
+
   if (token) {
     const authReq = req.clone({
       setHeaders: {
-        Authorization: ` Bearer ${token}`
+        'Authorization': `Bearer ${token.trim()}`
       }
     });
-
-    // Pass on the cloned request instead of the original request.
+    console.log('Authorization header successfully attached');
     return next(authReq);
   }
+
+  if (isBrowser) {
+    console.warn('No authentication token available in localStorage');
+  }
+
   return next(req);
 };
-
-
-
-

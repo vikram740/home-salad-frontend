@@ -116,7 +116,11 @@ export const routes: Routes = [
   {
     path: 'deliverytopnav',
     loadComponent: () =>
-      import('./deliverytopnav/deliverytopnav').then((m) => m.Deliverytopnav),
+      import('./deliverytopnav/deliverytopnav').then((m) => m.Deliverytopnav)},
+    {
+    path: 'adminproducts',
+    loadComponent: () =>
+      import('./adminproducts/adminproducts').then((m) => m.Adminproducts),
   },
 ];
 

@@ -1,0 +1,208 @@
+<div class="page">
+  <div class="container">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a routerLink="/adminDashboard" class="breadcrumb-link"> Dashboard </a>
+
+      <span class="separator">›</span>
+
+      <span class="breadcrumb-active"> Products </span>
+    </div>
+
+    <!-- Top Controls -->
+    <div class="top-controls">
+      <div class="search-box">
+        <input
+          type="text"
+          placeholder="search products..."
+          [(ngModel)]="searchText"
+          (input)="onSearch()"
+        />
+
+        <span class="material-symbols-outlined search-icon"> search </span>
+      </div>
+
+      <div class="right-buttons">
+        <button class="add-btn" routerLink="/adminAddproduct">
+          Add New Product
+        </button>
+
+        <button class="export-btn">Export Products</button>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Product Id</th>
+          <th>Product Name</th>
+          <th>Price</th>
+          <th>Date Created ↑</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let product of products; let i = index">
+          <td>{{ (currentPage - 1) * limit + i + 1 }}</td>
+          <td>#{{ product._id | slice: 0 : 6 }}</td>
+          <td>{{ product.name }}</td>
+          <td>₹{{ product.price?.daily }}</td>
+          <td>{{ product.createdAt | date: "dd/MM/yyyy" }}</td>
+          <td>
+            <span
+              class="material-symbols-outlined"
+              (click)="openViewModal(product)"
+            >
+              visibility
+            </span>
+
+            <span
+              class="material-symbols-outlined "
+              (click)="openEditModal(product)"
+            >
+              edit
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <div class="pagination-wrapper">
+      <div class="pagination">
+        <button
+          class="page-btn"
+          (click)="prevPage()"
+          [disabled]="currentPage === 1"
+        >
+          ‹ Previous
+        </button>
+
+        <span
+          *ngFor="let page of pages"
+          (click)="goToPage(page)"
+          class="page-number"
+          [class.active]="page === currentPage"
+        >
+          {{ page }}
+        </span>
+
+        <button
+          class="page-btn"
+          (click)="nextPage()"
+          [disabled]="currentPage === totalPages"
+        >
+          Next ›
+        </button>
+      </div>
+
+      <div class="rows-per-page">
+        Rows per page:
+        <select [(ngModel)]="limit" (change)="goToPage(1)">
+          <option [value]="5">5</option>
+          <option [value]="10">10</option>
+          <option [value]="20">20</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT MODAL -->
+<div class="modal fade" id="editModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Product</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+
+      <div class="modal-body">
+        <form [formGroup]="editForm">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>Name</label>
+              <input class="form-control" formControlName="name" />
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Category</label>
+              <select class="form-select" formControlName="category">
+                <option value="fruits">Fruits</option>
+                <option value="vegetables">Vegetables</option>
+              </select>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Daily Price</label>
+              <input
+                type="number"
+                class="form-control"
+                formControlName="daily"
+              />
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Weight</label>
+              <input class="form-control" formControlName="weight" />
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancel
+        </button>
+
+        <button class="btn btn-warning" (click)="updateProduct()">
+          Update
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VIEW IMAGES MODAL -->
+<div class="modal fade" id="viewModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Product Images</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-3 mb-3" *ngFor="let img of selectedProductImages">
+            <div
+              class="image-box"
+              [class.primary]="img.isPrimary"
+              (click)="setPrimaryImage(img)"
+            >
+              <img
+                [src]="environment.uploadUrl + img.url"
+                class="img-fluid rounded"
+              />
+
+              <div *ngIf="img.isPrimary" class="badge bg-success mt-1">
+                Primary
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

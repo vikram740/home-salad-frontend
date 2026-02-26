@@ -1,141 +1,188 @@
+/* Page Background */
 .page {
-  background-color: white;
+  background: #f4f4f4;
   min-height: 100vh;
-  font-family: Arial, sans-serif;
-}
-
-/* Header */
-.topbar {
-  background: linear-gradient(to right, #2fb344, #1e7e34);
-  color: white;
-  padding: 15px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  nav a {
-    margin-left: 20px;
-    cursor: pointer;
-  }
-
-  .logout {
-    margin-left: 10px;
-  }
+  padding: 30px 40px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Container */
 .container {
-  padding: 40px 80px;
+  max-width: 950px;
 }
 
 /* Breadcrumb */
 .breadcrumb {
-  color: #777;
+  font-size: 14px;
   margin-bottom: 20px;
 
-  span {
-    color: black;
-    font-weight: 500;
+  a {
+    text-decoration: none;
+    color: #555;
+    cursor: pointer;
+  }
+
+  
+
+  .separator {
+    margin: 0 6px;
+    color: #888;
+  }
+
+  .active {
+    font-weight: 600;
+    color: #000;
   }
 }
-/* Form */
-form {
-  max-width: 900px;
-}
-/* Form group */
+/* Form Group */
 .form-group {
-  margin-bottom: 25px;
-  display: flex;
-  flex-direction: column;
+  margin-bottom: 22px;
 
   label {
-    margin-bottom: 8px;
+    display: block;
     font-weight: 500;
+    margin-bottom: 6px;
   }
 
   input,
+  select,
   textarea {
-    padding: 12px;
+    width: 350px;
+    padding: 8px 10px;
+    border-radius: 6px;
     border: none;
-    border-radius: 8px;
-    background: rgba(237, 237, 237, 1);
-    outline: none;
+    background: #e6e6e6;
+    font-size: 14px;
   }
 
   textarea {
-    height: 100px;
+    height: 90px;
     resize: none;
   }
 
   small {
+    display: block;
+    margin-top: 6px;
     font-size: 12px;
-    color:rgba(237, 237, 237, 1);
-    margin-top: 5px;
+    color: #777;
   }
 }
 
-/* Images */
-.image-boxes {
+/* Images Section */
+.image-wrapper {
   display: flex;
   gap: 20px;
-}
-.preview {
-  width: 100%;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 8px;
+  margin-top: 10px;
 }
 
 .image-card {
-  background: white;
-  border: 1px dashed #ccc;
-  padding: 20px;
-  text-align: center;
-  border-radius: 8px;
   width: 150px;
+  height: 140px;
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+  background: #fff;
+  padding: 12px;
+  text-align: center;
+  position: relative;
 
-  .filename {
-    font-size: 12px;
-    color: rgba(237, 237, 237, 1); ;
-  }
-  button {
-    background: #f4b400;
-    border: none;
-    padding: 8px 15px;
-    margin-top: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-}
-
-/* Price section */
-.price-section {
-  display: flex;
-  gap: 40px;
-  margin-top: 20px;
-}
-
-.price-box {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-
-  input {
+  p {
+    font-size: 13px;
     margin-bottom: 10px;
   }
 
-  .radio-group {
-    display: flex;
-    flex-direction: column;
-    font-size: 14px;
-    margin-bottom: 5px;
-  }
-
   small {
-    font-size: 15px;
-   // color: black;
+    font-size: 11px;
+    color: #777;
   }
+}
+
+/* Upload Button */
+.upload-btn {
+  background: #f4b400;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.upload-btn:hover {
+  background: #e2a000;
+}
+
+/* Remove Icon */
+.remove-icon {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  color: red;
+}
+
+.price-section {
+  display: flex;
+  gap: 80px;
+  margin-top: 25px;
+}
+
+.price-box {
+  width: 420px;
+}
+
+.price-box h4 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.price-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+.input-wrapper {
+  width: 160px;
+}
+
+.amount-input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  background: #e6e6e6;
+  font-size: 14px;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.radio-group label {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+  margin-right: 6px;
+  accent-color: #f4b400;
+}
+
+.price-box small {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #777;
+}
+
+.price-box p {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 /* Buttons */
@@ -143,22 +190,39 @@ form {
   margin-top: 40px;
   display: flex;
   justify-content: flex-end;
-  gap: 15px;
+  gap: 20px;
+}
 
-  .cancel {
-    background: white;
-    border: 1px solid red;
-    color: red;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+/* Cancel Button */
+.cancel-btn {
+  background: #fff;
+  color: #e53935;
+  border: 2px solid #e53935;
+  padding: 8px 24px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
 
-  .add {
-    background: #f4b400;
-    border: none;
-    padding: 10px 25px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+.cancel-btn:hover {
+  background: #fdecea;
+}
+
+/* Add Product Button */
+.add-btn {
+  background: #f4b400;
+  color: #000;
+  border: none;
+  padding: 8px 28px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.add-btn:hover {
+  background: #e2a000;
 }
