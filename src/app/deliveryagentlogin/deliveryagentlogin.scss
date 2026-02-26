@@ -1,0 +1,121 @@
+@use "../../Variable.scss" as *;
+
+.section1{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+     border-radius: 20px;
+    @include mobile(){
+      display: unset !important;
+    }
+    @include tablet(){
+      display: unset !important;
+    }
+    .salad{
+      display: flex;
+       border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);  
+    }
+    .section2{ 
+        width: 415px;
+        background: white;
+        
+        .images{
+          display: flex;
+
+          .design{
+              width:415px;
+              height:450px;
+              object-fit: cover;
+              display:block;
+          }
+        }
+    }
+
+    .section3{
+         display: flex;
+         background: white;
+         padding: 15px;
+         margin: 0;
+         @include mobile(){
+           justify-content: center;
+         }
+
+         @include tablet(){
+           justify-content: center;
+         }
+        h3{
+          color:rgba(32, 103, 36, 1);
+                }
+        .login{
+
+          .fieldlabel{
+            font-size:20px;
+            display: flex;
+            margin-top: 20px;
+          }
+
+          input{
+            width:400px;
+            height:35px;
+            margin: 10px 0 ;
+            background-color: rgb(210, 208, 208);
+            border: none;
+            font-size: 20px;
+            border-radius: 5px;
+            padding-left: 10px;
+
+            @include mobile(){
+              width:100%;
+            }
+
+            @include ipad(){
+              width:100%;
+            }
+
+            @include ipadpro(){
+              width:100%;
+            }
+          }
+
+          .errMsg{
+            font-size: 14px;
+            color:red;
+          }
+
+          .divbutton{
+            button{
+             // color: white;
+              background-color:#FBC02D;
+              border: none;
+              width:100%;
+              font-size:20px;
+              padding:10px;
+              margin: 30px 0px 10px;
+              border-radius: 5px;
+
+              @include mobile(){
+                width:100% !important;
+              }
+            }
+          }
+
+          .check{
+            font-size:15px;
+            margin-top: 20px; 
+   
+            input{
+              width:15px;
+            }   
+          }
+
+          .link{
+            margin-top: 30px;
+            font-size: 20px;
+            text-align: center;
+          }
+        }
+    }
+}

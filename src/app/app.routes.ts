@@ -98,5 +98,25 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./usercheckout/usercheckout').then((m) => m.Usercheckout),
   },
+   {
+    path: 'deliveryAgentLogin',
+    loadComponent: () =>
+      import('./deliveryagentlogin/deliveryagentlogin').then((m) => m.Deliveryagentlogin),
+  },
+   {
+    path: 'deliveryAgentDashboard',
+    loadComponent: () =>
+      import('./deliveryagentdashboard/deliveryagentdashboard').then((m) => m.Deliveryagentdashboard),
+  },
+   {
+    path: 'deliveryAgentDeliveries',
+    loadComponent: () =>
+      import('./deliveryagentdeliveries/deliveryagentdeliveries').then((m) => m.Deliveryagentdeliveries),
+  },
+  {
+    path: 'deliverytopnav',
+    loadComponent: () =>
+      import('./deliverytopnav/deliverytopnav').then((m) => m.Deliverytopnav),
+  },
 ];
 
