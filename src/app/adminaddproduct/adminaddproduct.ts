@@ -4,13 +4,13 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-addproduct',
+  selector: 'app-adminaddproduct',
   //standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './addproduct.html',
-  styleUrls: ['./addproduct.scss']
+  templateUrl: './adminaddproduct.html',
+  styleUrls: ['./adminaddproduct.scss']
 })
-export class Addproduct {
+export class Adminaddproduct {
   
   productForm: FormGroup;
 

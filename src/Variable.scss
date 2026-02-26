@@ -24,11 +24,8 @@ $maxtablet: 767px;
 $mintablet: 481px;
 
 
-
 $maxmobile: 480px;
 $minmobile: 320px;
-
-
 
 
 @mixin bigscreen {
@@ -71,8 +68,6 @@ $minmobile: 320px;
         @content;
     }
 }
-
-
 
 
 @mixin tablet {

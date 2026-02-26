@@ -1,0 +1,252 @@
+/* ===============================
+   Global
+================================= */
+@use "../../Variable.scss" as *;
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 30px 60px;
+}
+
+/* ===============================
+   Breadcrumb
+================================= */
+
+.breadcrumb {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 20px;
+
+  span {
+    font-weight: 600;
+    color: #000;
+  }
+}
+
+/* ===============================
+   Customer Header
+================================= */
+
+.customer-header {
+  h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .contact {
+    margin: 8px 0 15px;
+    font-size: 14px;
+    color: #444;
+  }
+
+  .address-block {
+    margin-bottom: 20px;
+
+    .title {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    p {
+      margin: 2px 0;
+      font-size: 13px;
+    }
+  }
+
+  .action-buttons {
+    margin-bottom: 25px;
+
+    button {
+      padding: 7px 14px;
+      border-radius: 4px;
+      font-size: 13px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .edit-btn {
+      background: #f1f1f1;
+      border: 1px solid #ccc;
+    }
+
+    .delete-btn {
+      background: #fff;
+      border: 1px solid #e53935;
+      color: #e53935;
+    }
+  }
+}
+
+/* ===============================
+   Tabs
+================================= */
+
+.tabs {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 8px;
+
+  span {
+    font-size: 14px;
+    color: #777;
+    cursor: pointer;
+    padding-bottom: 6px;
+  }
+
+  .active-tab {
+    color: #2e7d32;
+    font-weight: 600;
+    border-bottom: 2px solid #2e7d32;
+  }
+}
+
+.note {
+  font-size: 12px;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+/* ===============================
+   Subscription Card
+================================= */
+
+.subscription-card {
+  display: flex;
+  align-items: flex-start; // IMPORTANT
+  justify-content: space-between;
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  padding: 20px;
+  gap: 25px;
+}
+
+/* Image */
+.subscription-card img {
+  width: 110px;
+  height: 85px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* Middle Content */
+.subscription-card .middle {
+  flex: 2;
+
+  h3 {
+    margin: 0 0 8px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  p {
+    margin: 4px 0;
+    font-size: 13px;
+    color: #444;
+  }
+}
+
+/* Address Block */
+.subscription-card .address {
+  flex: 1;
+
+  h4 {
+    margin: 0 0 6px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  p {
+    margin: 3px 0;
+    font-size: 13px;
+    color: #444;
+  }
+}
+
+/* ===============================
+   PRICE + STATUS (Correct Model)
+================================= */
+
+.subscription-card .price-status {
+  min-width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; // align right
+  justify-content: flex-start;
+  gap: 12px;
+  
+}
+
+.price-status .price-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.price-status .price-value {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.price-status .status {
+  background: #e6b325;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+
+}
+
+/* ===============================
+   RESPONSIVENESS
+================================= */
+
+@include ipad {
+  .container {
+    padding: 25px;
+  }
+
+  .subscription-card {
+    gap: 15px;
+  }
+}
+
+@include tablet {
+  .container {
+    padding: 20px;
+  }
+
+  .subscription-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .price-status {
+    align-items: flex-start;
+  }
+}
+
+@include mobile {
+  .container {
+    padding: 15px;
+  }
+
+  .subscription-card {
+    padding: 15px;
+  }
+
+  .subscription-card img {
+    width: 100%;
+    height: auto;
+  }
+
+  .price-status {
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

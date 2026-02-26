@@ -20,9 +20,9 @@ export const routes: Routes = [
       import('./userdashboard/userdashboard').then((m) => m.Userdashboard),
   },
   {
-    path: 'addproduct',
+    path: 'adminAddproduct',
     loadComponent: () =>
-      import('./addproduct/addproduct').then((m) => m.Addproduct),
+      import('./adminaddproduct/adminaddproduct').then((m) => m.Adminaddproduct),
   },
   {
     path: 'userplan',
@@ -42,6 +42,21 @@ export const routes: Routes = [
     path: 'adminDashboard',
     loadComponent: () =>
       import('./admindashboard/admindashboard').then((m) => m.Admindashboard),
+  },
+  {   
+    path: 'adminLogin',
+    loadComponent: () =>
+      import('./adminlogin/adminlogin').then((m) => m.Adminlogin),
+  },
+    {   
+    path: 'adminviewcustomer',
+    loadComponent: () =>
+      import('./adminviewcustomer/adminviewcustomer').then((m) => m.Adminviewcustomer),
+  },
+    {   
+    path: 'admineditcustomer',
+    loadComponent: () =>
+      import('./admineditcustomer/admineditcustomer').then((m) => m.Admineditcustomer),
   },
   {
     path: 'userorder',
@@ -72,6 +87,16 @@ export const routes: Routes = [
     path: 'useraddaddress',
     loadComponent: () =>
       import('./useraddaddress/useraddaddress').then((m) => m.Useraddaddress),
+  },
+  {
+    path: 'Topnav',
+    loadComponent: () =>
+      import('./topnav/topnav').then((m) => m.Topnav),
+  },
+  {
+    path: 'userCheckout',
+    loadComponent: () =>
+      import('./usercheckout/usercheckout').then((m) => m.Usercheckout),
   },
 ];
 
