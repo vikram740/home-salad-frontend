@@ -125,7 +125,7 @@ export class Adminproducts {
       weight: product.weight,
       nutrition: product.nutrition,
       daily: product.price?.daily,
-      weekly: product.price?.weekly,
+      weekly: product.price?.weekly,   
       monthly: product.price?.monthly
     });
 

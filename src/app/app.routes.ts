@@ -122,5 +122,30 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./adminproducts/adminproducts').then((m) => m.Adminproducts),
   },
+  {
+    path: 'userPlandaily',
+    loadComponent: () =>
+      import('./userplandaily/userplandaily').then((m) => m.Userplandaily),
+  },
+   {
+    path: 'userPlanweek',
+    loadComponent: () =>
+      import('./userplanweek/userplanweek').then((m) => m.Userplanweek),
+  },
+   {
+    path: 'userPlanmonth',
+    loadComponent: () =>
+      import('./userplanmonth/userplanmonth').then((m) => m.Userplanmonth),
+  },
+  {
+    path: 'userCustomizeplanmonth',
+    loadComponent: () =>
+      import('./usercustomizeplanmonth/usercustomizeplanmonth').then((m) => m.Usercustomizeplanmonth),
+  },
+   {
+    path: 'userCustomizeplanweek',
+    loadComponent: () =>
+      import('./usercustomizeplanweek/usercustomizeplanweek').then((m) => m.Usercustomizeplanweek),
+  },
 ];
 

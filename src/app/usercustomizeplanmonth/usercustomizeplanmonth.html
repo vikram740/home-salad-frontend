@@ -1,0 +1,47 @@
+<div class="overlay" *ngIf="isOpen">
+  <div class="popup-card">
+
+    <!-- Header -->
+    <div class="header">
+      <h2>Customize Plan (Monthly)</h2>
+      <p class="subtitle">
+        Choose your favorites for each day, repeated weekly for the entire month
+      </p>
+    </div>
+
+    <hr />
+
+    <!-- Days -->
+    <div class="days-container">
+
+      <div class="day-row" *ngFor="let day of days">
+        <div class="day-label">{{ day.name }}</div>
+
+        <select class="dropdown">
+          <option>Apple Detox Fruit Salad</option>
+          <option>Mixed Veg Bowl</option>
+          <option>Protein Power Meal</option>
+        </select>
+
+        <div class="price" [ngClass]="{ 'positive': day.price > 0 }">
+          + ₹{{ day.price }}
+        </div>
+      </div>
+
+      <!-- New Price -->
+      <div class="new-price">
+        <span>New Price:</span>
+        <strong>₹95</strong>
+        <small>per day</small>
+      </div>
+
+      <!-- Buttons -->
+      <div class="button-row">
+        <button class="cancel-btn">Cancel</button>
+        <button class="checkout-btn">Proceed to Checkout</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
